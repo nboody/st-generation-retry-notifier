@@ -1,0 +1,18 @@
+{
+    "display_name": "Generation Retry Notifier",
+    "loading_order": 120,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "",
+    "author": "OpenAI Codex",
+    "version": "1.0.0",
+    "homePage": "https://github.com/SillyTavern/SillyTavern",
+    "minimum_client_version": "1.13.0",
+    "auto_update": false,
+    "hooks": {
+        "activate": "activate",
+        "enable": "enable",
+        "disable": "disable"
+    }
+}

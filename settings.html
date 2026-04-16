@@ -1,0 +1,85 @@
+<div id="stgrn_settings" class="inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+        <b>Generation Retry Notifier</b>
+        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down"></div>
+    </div>
+    <div class="inline-drawer-content">
+        <div class="flex-container flexFlowColumn flexGap10">
+            <label class="checkbox_label">
+                <input id="stgrn_retry_enabled" type="checkbox" />
+                <span>启用自动重试</span>
+            </label>
+
+            <label for="stgrn_retry_strategy">重试策略</label>
+            <select id="stgrn_retry_strategy" class="text_pole">
+                <option value="fixed">固定间隔</option>
+                <option value="linear">线性退避</option>
+                <option value="exponential">指数退避</option>
+            </select>
+
+            <label for="stgrn_max_retries">最大重试次数</label>
+            <input id="stgrn_max_retries" class="text_pole" type="number" min="1" max="10" step="1" />
+
+            <label for="stgrn_base_delay_ms">基础等待（毫秒）</label>
+            <input id="stgrn_base_delay_ms" class="text_pole" type="number" min="100" max="600000" step="100" />
+
+            <div id="stgrn_backoff_factor_row">
+                <label for="stgrn_backoff_factor">指数倍数</label>
+                <input id="stgrn_backoff_factor" class="text_pole" type="number" min="1.1" max="10" step="0.1" />
+            </div>
+
+            <label for="stgrn_max_delay_ms">单次最大等待（毫秒）</label>
+            <input id="stgrn_max_delay_ms" class="text_pole" type="number" min="100" max="600000" step="100" />
+
+            <label class="checkbox_label">
+                <input id="stgrn_jitter_enabled" type="checkbox" />
+                <span>加入随机抖动</span>
+            </label>
+
+            <div id="stgrn_jitter_ratio_row">
+                <label for="stgrn_jitter_ratio_percent">抖动比例（%）</label>
+                <input id="stgrn_jitter_ratio_percent" class="text_pole" type="number" min="0" max="100" step="1" />
+            </div>
+
+            <label class="checkbox_label">
+                <input id="stgrn_retry_on_network_error" type="checkbox" />
+                <span>请求异常时也重试</span>
+            </label>
+
+            <label for="stgrn_retry_status_codes">可重试状态码（逗号分隔）</label>
+            <input id="stgrn_retry_status_codes" class="text_pole" type="text" placeholder="408,429,500,502,503,504" />
+
+            <label class="checkbox_label">
+                <input id="stgrn_show_retry_toasts" type="checkbox" />
+                <span>显示重试提示 toast</span>
+            </label>
+
+            <hr />
+
+            <label class="checkbox_label">
+                <input id="stgrn_notify_enabled" type="checkbox" />
+                <span>启用浏览器通知</span>
+            </label>
+
+            <label class="checkbox_label">
+                <input id="stgrn_notify_when_focused" type="checkbox" />
+                <span>页面有焦点时也推送通知</span>
+            </label>
+
+            <div class="flex-container alignitemscenter flexGap10" style="flex-wrap: wrap;">
+                <span>通知权限：<strong id="stgrn_permission_status">unknown</strong></span>
+                <button id="stgrn_request_permission" type="button" class="menu_button" style="white-space: nowrap;">请求权限</button>
+                <button id="stgrn_test_notification" type="button" class="menu_button" style="white-space: nowrap;">发送测试通知</button>
+            </div>
+
+            <div class="flex-container flexFlowColumn flexGap5">
+                <strong>重试预览</strong>
+                <div id="stgrn_retry_preview">-</div>
+            </div>
+
+            <small>
+                仅拦截 SillyTavern 文本生成端点。默认仅在页面失焦时推送，勾选上面的选项后前台也会推送。
+            </small>
+        </div>
+    </div>
+</div>
